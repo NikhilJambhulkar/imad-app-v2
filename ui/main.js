@@ -6,7 +6,7 @@ element.innerHTML='New value';
 
 //Move the image
 
-var img=documentet.getElementById('madi');
+var img=document.getElementById('madi');
 
 var marginLeft=0;
 
