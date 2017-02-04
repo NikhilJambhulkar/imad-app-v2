@@ -2,11 +2,11 @@ console.log('Loaded!');
 
 //change the text of the main text div
 var element =document.getElementById('main-text');
-element.innerHTML='new value';
+element.innerHTML='New value';
 
 //Move the image
 
-var img=documentet.gElementById('madi');
+var img=documentet.getElementById('madi');
 
 var marginLeft=0;
 
@@ -15,6 +15,6 @@ function moveRight(){
     img.style.marginLeft =marginLeft+'px';
 }
 
-img.onclick=function(){
+img.onclick= function(){
     var interval=setInterval(moveRight,100);
 };
