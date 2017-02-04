@@ -5,7 +5,107 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articles={
+ 'article-one':{
+    title:'Article One ! Nikhil',
+    heading:'Article One',
+    date:'3 feb 2017',
+    content:`<p>
+                    This is the content of my first article.This is the content of my first article.This is the content of my first article
+                    This is the content of my first article.This is the content of my first article.This is the content of my first article
+                </p>
+                <p>
+                    This is the content of my first article.This is the content of my first article.This is the content of my first article
+                    This is the content of my first article.This is the content of my first article.This is the content of my first article
+                </p>
+                <p>
+                    This is the content of my first article.This is the content of my first article.This is the content of my first article
+                    This is the content of my first article.This is the content of my first article.This is the content of my first article
+                </p>`
+    
+},
+ 'article-two':{
+    title:'Article One ! Nikhil',
+    heading:'Article Two',
+    date:'3 feb 2017',
+    content:`<p>
+                    This is the content of my two article.This is the content of my two article.This is the content of my two article
+                    This is the content of my two article.This is the content of my two article.This is the content of my two article
+                </p>
+               <p>
+                    This is the content of my two article.This is the content of my two article.This is the content of my two article
+                    This is the content of my two article.This is the content of my two article.This is the content of my two article
+                </p>
+               <p>
+                    This is the content of my two article.This is the content of my two article.This is the content of my two article
+                    This is the content of my two article.This is the content of my two article.This is the content of my two article
+                </p>`
+    
+},
 
+ 'article-three':{
+    title:'Article One ! Nikhil',
+    heading:'Article Three',
+    date:'3 feb 2017',
+    content:`<p>
+                    This is the content of my third article.This is the content of my third article.This is the content of my third article
+                    This is the content of my third article.This is the content of my third article.This is the content of my third article
+                </p>
+               <p>
+                    This is the content of my third article.This is the content of my third article.This is the content of my third article
+                    This is the content of my third article.This is the content of my third article.This is the content of my third article
+                </p>
+               <p>
+                    This is the content of my third article.This is the content of my third article.This is the content of my third article
+                    This is the content of my third article.This is the content of my third article.This is the content of my third article
+                </p>`
+    
+}
+    
+}
+
+function CreateTemplate(data)
+{
+    var title=data.title;
+    var heading=data.heading;
+    var date=data.date;
+    var content=data.content;
+    var htmlTemplate=`<html>
+        <head>
+            <title>
+                 ${title}
+            </title>
+            <meta name="viewport" content="width-device-width,initial-scale=1"/> 
+            <link href="/ui/style.css" rel="stylesheet" />
+        </head>
+        <body>
+            <div class="container">
+                <div>
+                    <a href="/">Home</a>
+                </div>
+                <br/>
+                <h3>
+                     ${heading}
+                </h3>
+                <div>
+                     ${date}
+                </div>
+                <div>
+                   ${content}
+                </div>
+            </div>
+        </body>`;
+        return htmlTemplate;
+}
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/:articleName', function(req, res){
+    var articleName=req.params.articleName;
+     res.send(CreateTemplate(articles[articleName]));
+});
 
 var counter=0;
 app.get('/counter', function(req, res){
