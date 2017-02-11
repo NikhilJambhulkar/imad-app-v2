@@ -58,7 +58,7 @@ commenttext.onclick=function(){
                    comments=JSON.parse(comments);
                    var list='';
                    for(var i=0;i<comments.length;i++){
-                       list+='<p>'+comments[i]+'</p><hr/>'
+                       list+='<p><b>*</b>'+comments[i]+'</p><hr/>'
                     }
         var div=document.getElementById('commentdiv');
         div.innerHTML=list;
