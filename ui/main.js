@@ -18,7 +18,8 @@ button.onclick=function(){
     request.send(null);
     
 };
-
+// <textarea rows="4" cols="50" id="commentbox" placeholder="Type your comments here..."></textarea>
+      //      <input type="submit" id='commentsubmit_btn' value="Submit">
 var submit=document.getElementById('submit_btn');
 submit.onclick=function(){
     
@@ -44,3 +45,5 @@ submit.onclick=function(){
     request.send(null);
   
 };
+
+var commenttext=document.getElementById('commentbox');
