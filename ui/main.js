@@ -46,7 +46,7 @@ submit.onclick=function(){
   
 };
 
-var commenttext=document.getElementById('commentbox');
+var commenttext=document.getElementById('commentsubmit_btn');
 commenttext.onclick=function(){
     
     var request=new XMLHttpRequest();
